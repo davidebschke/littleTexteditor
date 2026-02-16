@@ -10,6 +10,6 @@ class DemoController {
 
     @GetMapping("/")
     public String helloWorld() {
-        return "helloWorldTemplate";
+        return "mainSide";
     }
 }
