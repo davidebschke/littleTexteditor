@@ -4,21 +4,19 @@
         <th:block th:replace="~{fragments/head :: common-head}"></th:block>
         <title>littleTexteditor</title>
     </head>
-        <body>
-            <dialog open>
-                    <article class="container" style="min-height: 50%">
+    <body>
+        <form th:action="@{/export}"
+              th:object="${textfieldText}"
+              method="post">
 
-                <h2> Write the Text in the Textfield and then click on export  </h2>
+        <textarea
+                th:field="*{content}"
+                placeholder="Write your text here"
+                style="min-height: 200px; width: 100%;">
 
-                    <p>
-                        <textarea
-                            name="textfield"
-                            placeholder="Write your text here"
-                            aria-label="text field">
-                        </textarea>
-                    </p>
+        </textarea>
 
-                    </article>
-            </dialog>
+            <button type="submit">Export the Text as txt</button>
+        </form>
         </body>
 </html>
