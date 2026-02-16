@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+    <head>
+        <th:block th:replace="~{fragments/head :: common-head}"></th:block>
+        <title>littleTexteditor</title>
+    </head>
+        <body>
+            <dialog open>
+                    <article class="container" style="min-height: 50%">
+
+                <h2> Write the Text in the Textfield and then click on export  </h2>
+
+                    <p>
+                        <textarea
+                            name="textfield"
+                            placeholder="Write your text here"
+                            aria-label="text field">
+                        </textarea>
+                    </p>
+
+                    </article>
+            </dialog>
+        </body>
+</html>
