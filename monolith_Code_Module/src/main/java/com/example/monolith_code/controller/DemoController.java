@@ -35,13 +35,14 @@ class DemoController {
         try {
             String text = textfieldText.content();
             String font = textfieldText.fontFamily();
+            String fontColor=textfieldText.fontColor();
 
             if (text == null || text.trim().isEmpty()) {
                 // Bei leerem Text: Fehler-Response
                 return ResponseEntity.badRequest().build();
             }
 
-            exportService.exportTxt(text,font);
+            exportService.exportTxt(text,font,fontColor);
 
             byte[] data = text.getBytes(StandardCharsets.UTF_8);
             ByteArrayResource resource = new ByteArrayResource(data);
@@ -65,7 +66,7 @@ class DemoController {
     public String mainSide(Model model) {
         // Prüfe ob schon ein textfieldText im Model existiert (z.B. von Flash Attributes)
         if (!model.containsAttribute("textfieldText")) {
-            model.addAttribute("textfieldText", new TextfieldText("","Times New Roman"));
+            model.addAttribute("textfieldText", new TextfieldText("","Times New Roman","black"));
         }
         return "mainSide";
     }

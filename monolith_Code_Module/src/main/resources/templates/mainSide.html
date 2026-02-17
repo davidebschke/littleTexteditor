@@ -14,7 +14,6 @@
                     th:field="*{fontFamily}"
 
                     onchange="changeFont(this.value)">
-                <!-- Standard System-Schriften -->
                 <option value="Arial, sans-serif">Arial</option>
                 <option value="'Times New Roman', serif">Times New Roman</option>
                 <option value="'Courier New', monospace">Courier New</option>
@@ -22,8 +21,6 @@
                 <option value="Verdana, sans-serif">Verdana</option>
                 <option value="Tahoma, sans-serif">Tahoma</option>
                 <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
-
-                <!-- Schlicht & Modern -->
                 <option value="'Roboto', sans-serif">Roboto</option>
                 <option value="'Open Sans', sans-serif">Open Sans</option>
                 <option value="'Lato', sans-serif">Lato</option>
@@ -33,14 +30,10 @@
                 <option value="'Raleway', sans-serif">Raleway</option>
                 <option value="'Ubuntu', sans-serif">Ubuntu</option>
                 <option value="'Oswald', sans-serif">Oswald</option>
-
-                <!-- Elegant & Serif -->
                 <option value="'Playfair Display', serif">Playfair Display</option>
                 <option value="'Merriweather', serif">Merriweather</option>
                 <option value="'Abril Fatface', cursive">Abril Fatface</option>
                 <option value="'Cinzel', serif">Cinzel</option>
-
-
                 <option value="'Dancing Script', cursive">Dancing Script</option>
                 <option value="'Satisfy', cursive">Satisfy</option>
                 <option value="'Great Vibes', cursive">Great Vibes</option>
@@ -48,8 +41,6 @@
                 <option value="'Pacifico', cursive">Pacifico</option>
                 <option value="'Lobster', cursive">Lobster</option>
                 <option value="'Permanent Marker', cursive">Permanent Marker</option>
-
-
                 <option value="'Bebas Neue', cursive">Bebas Neue</option>
                 <option value="'Righteous', cursive">Righteous</option>
                 <option value="'Titan One', cursive">Titan One</option>
@@ -57,10 +48,31 @@
                 <option value="'Boogaloo', cursive">Boogaloo</option>
                 <option value="'Bangers', cursive">Bangers</option>
                 <option value="'Chewy', cursive">Chewy</option>
-
                 <option value="'Press Start 2P', cursive">Press Start 2P 🎮</option>
                 <option value="'Creepster', cursive">Creepster 💀</option>
                 <option value="'Special Elite', cursive">Special Elite 🕵️</option>
+            </select>
+
+            <label for="fontColor">Schriftfarbe:</label>
+            <select th:field="*{fontColor}" id="fontColor">
+                <option value="black">Schwarz</option>
+                <option value="white">Weiß</option>
+                <option value="gray">Grau</option>
+                <option value="red">Rot</option>
+                <option value="blue">Blau</option>
+                <option value="green">Grün</option>
+                <option value="orange">Orange</option>
+                <option value="purple">Lila</option>
+                <option value="pink">Pink</option>
+                <option value="yellow">Gelb</option>
+                <option value="#FF5733">Koralle 🟠</option>
+                <option value="#3498DB">Himmelblau 🔵</option>
+                <option value="#2ECC71">Mintgrün 🟢</option>
+                <option value="#9B59B6">Violett 🟣</option>
+                <option value="#F39C12">Goldgelb 🟡</option>
+                <option value="#E74C3C">Crimsonrot 🔴</option>
+                <option value="#1ABC9C">Türkis</option>
+                <option value="#34495E">Dunkelgrau</option>
             </select>
             <label>
                 <textarea
@@ -82,13 +94,21 @@
                 document.getElementById("content").style.fontFamily = font;
             }
 
+            function changeColor(color) {
+                document.getElementById("content").style.color = color;
+            }
+
             document.getElementById("fontSelect").addEventListener("change", function () {
                 changeFont(this.value);
             });
 
-            // Schriftart beim Laden der Seite setzen
+            document.getElementById("fontColor").addEventListener("change", function () {
+                changeColor(this.value);
+            });
+
             window.addEventListener("load", function () {
                 changeFont(document.getElementById("fontSelect").value);
+                changeColor(document.getElementById("fontColor").value);
             });
         </script>
         </body>
