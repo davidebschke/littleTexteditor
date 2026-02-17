@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExportService {
 
-    public void exportTxt(String textContent) {
-        System.out.println("Exportiere Text: " + textContent);
+    public void exportTxt(String textContent,String fontFamily) {
+        System.out.println("Exportiere Text: " + textContent + "mit folgender Schriftart: " + fontFamily);
     }
 }

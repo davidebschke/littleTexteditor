@@ -9,14 +9,87 @@
               th:object="${textfieldText}"
               method="post">
 
-        <textarea
-                th:field="*{content}"
-                placeholder="Write your text here"
-                style="min-height: 200px; width: 100%;">
+            <label for="fontSelect">Schriftart:</label>
+            <select id="fontSelect"
+                    th:field="*{fontFamily}"
 
-        </textarea>
+                    onchange="changeFont(this.value)">
+                <!-- Standard System-Schriften -->
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="'Courier New', monospace">Courier New</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+
+                <!-- Schlicht & Modern -->
+                <option value="'Roboto', sans-serif">Roboto</option>
+                <option value="'Open Sans', sans-serif">Open Sans</option>
+                <option value="'Lato', sans-serif">Lato</option>
+                <option value="'Montserrat', sans-serif">Montserrat</option>
+                <option value="'Poppins', sans-serif">Poppins</option>
+                <option value="'Nunito', sans-serif">Nunito</option>
+                <option value="'Raleway', sans-serif">Raleway</option>
+                <option value="'Ubuntu', sans-serif">Ubuntu</option>
+                <option value="'Oswald', sans-serif">Oswald</option>
+
+                <!-- Elegant & Serif -->
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Merriweather', serif">Merriweather</option>
+                <option value="'Abril Fatface', cursive">Abril Fatface</option>
+                <option value="'Cinzel', serif">Cinzel</option>
+
+
+                <option value="'Dancing Script', cursive">Dancing Script</option>
+                <option value="'Satisfy', cursive">Satisfy</option>
+                <option value="'Great Vibes', cursive">Great Vibes</option>
+                <option value="'Allura', cursive">Allura</option>
+                <option value="'Pacifico', cursive">Pacifico</option>
+                <option value="'Lobster', cursive">Lobster</option>
+                <option value="'Permanent Marker', cursive">Permanent Marker</option>
+
+
+                <option value="'Bebas Neue', cursive">Bebas Neue</option>
+                <option value="'Righteous', cursive">Righteous</option>
+                <option value="'Titan One', cursive">Titan One</option>
+                <option value="'Fredoka One', cursive">Fredoka One</option>
+                <option value="'Boogaloo', cursive">Boogaloo</option>
+                <option value="'Bangers', cursive">Bangers</option>
+                <option value="'Chewy', cursive">Chewy</option>
+
+                <option value="'Press Start 2P', cursive">Press Start 2P 🎮</option>
+                <option value="'Creepster', cursive">Creepster 💀</option>
+                <option value="'Special Elite', cursive">Special Elite 🕵️</option>
+            </select>
+            <label>
+                <textarea
+                        id="content"
+                        th:field="*{content}"
+                        placeholder="Write your text here"
+                        style="min-height: 200px; width: 100%;"
+                >
+
+                </textarea>
+            </label>
 
             <button type="submit">Export the Text as txt</button>
         </form>
+
+
+        <script>
+            function changeFont(font) {
+                document.getElementById("content").style.fontFamily = font;
+            }
+
+            document.getElementById("fontSelect").addEventListener("change", function () {
+                changeFont(this.value);
+            });
+
+            // Schriftart beim Laden der Seite setzen
+            window.addEventListener("load", function () {
+                changeFont(document.getElementById("fontSelect").value);
+            });
+        </script>
         </body>
 </html>
